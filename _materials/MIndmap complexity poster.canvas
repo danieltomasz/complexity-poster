@@ -1,0 +1,61 @@
+{
+  "edges": [
+  ],
+  "nodes": [
+    {
+      "file": "Notes/Autocorrelation and the complexity measures.md",
+      "height": 400,
+      "id": "9f4646d33cb4c107",
+      "styleAttributes": {
+      },
+      "type": "file",
+      "width": 400,
+      "x": -360,
+      "y": -660
+    },
+    {
+      "file": "Notes/Ways for measuring regularity in time series data.md",
+      "height": 400,
+      "id": "bbc3ed02a7dfdb30",
+      "styleAttributes": {
+      },
+      "type": "file",
+      "width": 400,
+      "x": -460,
+      "y": -80
+    },
+    {
+      "height": 56,
+      "id": "e1c57f021ca8e509",
+      "styleAttributes": {
+      },
+      "text": "[[EEG and signal complexity measures]]",
+      "type": "text",
+      "width": 332,
+      "x": -100,
+      "y": -180
+    },
+    {
+      "height": 56,
+      "id": "a89cd2e29712d07a",
+      "styleAttributes": {
+      },
+      "text": "[[Timescales in neuronal activity]]",
+      "type": "text",
+      "width": 315,
+      "x": 0,
+      "y": 60
+    },
+    {
+      "height": 74,
+      "id": "538cb44e3ae982b5",
+      "styleAttributes": {
+      },
+      "text": "[[Poster about complexity measures and EEG]]",
+      "type": "text",
+      "width": 366,
+      "x": -440,
+      "y": 400
+    }
+  ]
+}
