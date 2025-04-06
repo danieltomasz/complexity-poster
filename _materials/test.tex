@@ -1,12 +1,16 @@
-\documentclass[tikz]{standalone}
-% \usepackage{tikz} % already loaded by the documentclass
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{mindmap, shapes.geometric}
 
+\title{TikZ Mindmap Example with Branch Lines}
+\author{}
+\date{}
 
 \begin{document}
-%%| filename: stick-figure
-%%| caption: A Stick Figure
+\maketitle
 
-\usetikzlibrary {mindmap}
+\section*{Ccomplexity and Neuroscience mindmap}
+
 \begin{tikzpicture}[mindmap, grow cyclic, every node/.style=concept, concept color=orange!40,
     level 1/.append style={level distance=4cm,sibling angle=70},
     level 2/.append style={level distance=3cm,sibling angle=40},
@@ -37,5 +41,5 @@
     child { node[concept] {Multifractality} }};
     
 \end{tikzpicture}
+
 \end{document}
-      

@@ -34,49 +34,37 @@ tikz:
 bibliography:  complexity.bib
 ---
 
+
+```{=typst}
+#block(
+  fill: rgb("#E0FFFF"),  // Keep your desired pastel background
+  stroke: blue + 1pt,    // Keep your desired border
+  radius: 8pt,           // INCREASED from ~4pt for more rounded corners
+  inset: 15pt,           // INCREASED from ~8pt for more space around text
+)[
+  Your content goes here. This area should now feel
+  a bit roomier, and the corners of the box will
+  be more noticeably curved. Adjust the values
+  for radius and inset until you are satisfied.
+]
+```
+
+- complexity, critialicy and related approaches  looking for system dynamics and variability are  gaining traction in neurosicence
+-  Biomarkers based on it are succesful in discrimating states of consciousness,  whiile effort was directed toward styding the content 
+- conscious experience is rich and has high dimensional structure [@ji2024SourcesRichnessIneffability], which is set the problem suitable  for next set of tool arising from statistical physics and complexity science
+
 # Quantifying information during conscious experience
 
-::: {.callout-note}
-## Callout Title (optional)
 
-Your callout text goes here.
+::: {#fig-example }
+
+![Hanno](images/measures.svg)
+Selected measures of complexity and critility.
+
 :::
-
-# Complexity measures for EEG 
 
 Richness of conscious experience pose a question to the neuroscience  
 
-::: {#fig-example }
-```{.tikz}
-%%| filename: stick-figure
-%%| caption: A Stick Figure
-
-\usetikzlibrary {mindmap}
-\begin{tikzpicture}
-  \path[mindmap,concept color=black,text=white]
-    node[concept] {Computer Science}
-    [clockwise from=0]
-    % note that `sibling angle' can only be defined in
-    % `level 1 concept/.append style={}'
-    child[concept color=green!50!black] {
-      node[concept] {practical}
-      [clockwise from=90]
-      child { node[concept] {algorithms} }
-      child { node[concept] {data structures} }
-      child { node[concept] {pro\-gramming languages} }
-      child { node[concept] {software engineer\-ing} }
-    }
-    % note that the `concept color' is passed to the `child'(!)
-    child[concept color=blue] {
-      node[concept] {applied}
-      [clockwise from=-30]
-      child { node[concept] {databases} }
-      child { node[concept] {WWW} }
-    }
-    child[concept color=red] { node[concept] {technical} }
-    child[concept color=orange] { node[concept] {theoretical} };
-\end{tikzpicture}
-```
 
 :::
 # Brain criticality
@@ -93,19 +81,7 @@ Criticality is the singular state of complex systems poised at the brink of a ph
 - Integration and unity
 - Effects of psycholics on complexity
 
-```{=typst}
-#block(
-  fill: rgb("#E0FFFF"),  // Keep your desired pastel background
-  stroke: blue + 1pt,    // Keep your desired border
-  radius: 8pt,           // INCREASED from ~4pt for more rounded corners
-  inset: 15pt,           // INCREASED from ~8pt for more space around text
-)[
-  Your content goes here. This area should now feel
-  a bit roomier, and the corners of the box will
-  be more noticeably curved. Adjust the values
-  for radius and inset until you are satisfied.
-]
-```
+
 
 
 
@@ -133,21 +109,39 @@ graph of different frameworks
 - Information theory 
 - dynamical systems
 
-```{=typst}
-
-#table(
-  columns: (auto, auto, auto),
-  inset: 10pt,
-  align: center,
-  [Header 1], [Header 2], [Header 3],
-  [Cell 1], [Cell 2], [Cell 3],
-  [Cell 4], [Cell 5], [Cell 6],
-)
-```
-
 This poster presents a perspective on bridging quantitative measures of neural dynamics with phenomenal consciousness. The connection between self-organizing systems and spectral 1/f phenomena predates the recent surge in studies. Currently, these measures are being used to differentiate states of consciousness (e.g., distinguishing between minimally conscious and vegetative states, identifying sleep phases) and are also applied in research on psychedelics (e.g., the “entropic brain” hypothesis, where stimulants increase the complexity and richness of neuronal communication).
 
+# Complexity measures for EEG 
 
+```{=typst}
+#text(size: 22pt)[
+  #table(
+    columns: (auto, auto, auto, auto, auto),
+    inset: 10pt,
+    align: (left, left, left, left, left),
+    fill: (_, row) => if row == 0 { rgb(240, 240, 245) } else { white },
+    stroke: (x, y) => if y == 0 { (bottom: 1.5pt) } else { 0.5pt },
+    
+    [*Method*], [*Domain*], [*Key Characteristics*], [*Strengths*], [*Limitations*],
+    
+    [*Auto-correlation decay time*], [Time], [Measures how quickly signal decorrelates with itself], [Correlates with knee frequency; relationship with age persists after accounting for exponent], [—],
+    
+    [*Hurst Exponent*], [Time], [Quantifies long-term memory of time series], [Measures statistical dependence between distant points], [More influenced by oscillations],
+    
+    [*DFA* (Detrended Fluctuation Analysis)], [Time], [Examines how fluctuations scale with window size], [Removes overall trends first], [—],
+    
+    [*Fractal Dimension metrics* (Higuchi, Katz, Petrosian)], [Time], [Measure signal complexity and self-similarity], [Katz fractal dimension less affected by oscillations], [—],
+    
+    [*Lempel-Ziv Complexity*], [Time], [Counts unique patterns in binarized signal], [Less affected by oscillations], [—],
+    
+    [*Entropy measures* (ApEn, SampEn, PE, WPE)], [Time], [Quantify signal unpredictability], [Sample entropy less affected by oscillations], [Permutation entropy strongly influenced by oscillations],
+    
+    [*Spectral Parameterization* (SpecParam/FOOOF)], [Frequency], [Models both periodic and aperiodic components], [Handles knees and broad peaks well; directly separates oscillations from background], [More complex modeling approach],
+    
+    [*IRASA*], [Frequency], [Separates components through resampling], [Directly separates oscillations from background], [Less effective with knees or non-scale-free signals]
+  )
+]
+```
 
 Increased entropy or fractal dimension often correlates with positive affective states (e.g., psychedelics) and cognitive flexibility, whereas reduced complexity is observed in conditions such as depression. These patterns frequently involve NMDA receptors modulation  ( excitation-inhibition framework), providing a mechanistic link to various conditions that alter subjective experience, including schizophrenia and ADHD. Additionally, age-related changes in spectral slope correlate with cognitive reserve capacity, suggesting that variations in brain dynamics may # fundamentally shape phenomenological experience across the lifespan.
 

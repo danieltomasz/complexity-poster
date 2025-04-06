@@ -38,7 +38,7 @@
   keywords: (),
 
   // Number of columns in the poster.
-  num_columns: "3", // Default is already 3
+  num_columns: "2", // Default is already 3
 
   // University logo's scale (in %).
   univ_logo_scale: "100",
@@ -115,7 +115,7 @@
   set list(indent: 30pt, body-indent: 9pt)
 
   // Configure headings.
-  set heading(numbering: "I.A.1.")
+  set heading(numbering: none ) // Was: set heading(numbering: "I.A.1.")
   show heading: it => locate(loc => {
     let levels = counter(heading).at(loc)
     let deepest = if levels != () { levels.last() } else { 1 }
