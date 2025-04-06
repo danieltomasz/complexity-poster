@@ -56,6 +56,17 @@
       "width": 366,
       "x": -440,
       "y": 400
+    },
+    {
+      "height": 56,
+      "id": "722dfa7d058575c6",
+      "styleAttributes": {
+      },
+      "text": "I should write it as an email :)  [[Email about conference presentation]]",
+      "type": "text",
+      "width": 395,
+      "x": -720,
+      "y": -820
     }
   ]
 }

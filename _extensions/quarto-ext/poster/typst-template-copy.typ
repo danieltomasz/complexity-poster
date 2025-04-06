@@ -160,6 +160,8 @@
     ] else if it.level == 2 [
       // Second-level headings are run-ins.
       // italic, 32 pt, numbered w/letters
+      //       #set text(style: "italic")
+      #v(28pt, weak: true) // Example adjustment: Reduced spacing
       #set text(style: "italic", weight: 600)
       #v(32pt, weak: true)
       #if it.numbering != none {

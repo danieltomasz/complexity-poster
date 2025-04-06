@@ -4,17 +4,17 @@ format:
   poster-typst:
     # Core changes for size and columns
     size: "33x47" # <--- Set the desired size here
-    num_columns: 2 # <--- Explicitly set 3 columns (matches the template default)
+    num_columns: 3 # <--- Explicitly set 3 columns (matches the template default)
 
     # Original parameters (keep as they were unless you need to change them)
     poster-authors: "Daniel Borek"
     departments: "Ghent University, Faculty of Psychology and Educational Sciences, Department of Data-Analysis"
-    institution-logo: "./images/logoUGent.png" # Maps to univ_logo
-    footer-text: "posit::conf 2023"
-    footer-url: "https://posit.co/conference/"
-    footer-emails: "abc@example.com" # Maps to footer_email_ids
+    institution-logo:  "./images/logoUGent.png" # Maps to univ_logo
+    footer-text: " Value, Valence, and Consciousness Workshop"
+    footer-url: "Brussels  April 2025"
+    footer-emails: "daniel.borek@ugent.be" # Maps to footer_email_ids
     footer-color: "ebcfb2"
-    keywords: ["Typesetting", "Typst", "Quarto"]
+    keywords: ["Complexity", "Criticality", "Consciousness"]
 
     # Optional: Override specific template defaults here if needed for 33x47
     # Example: uncomment and adjust if the defaults don't look good
@@ -24,11 +24,126 @@ format:
     title_column_size: 17
     #univ_logo_scale: 0.20 
     column_gutter: 48pt # Note: Quarto might need "48pt" string or just 48pt
-
+filters:
+  - tikz
 # The rest of your markdown content remains the same
+tikz:
+  cache: false
+  save-tex: true  # Enable saving intermediate .tex files
+  tex-dir: tikz-tex  # Optional: Specify directory to save .tex files
+bibliography:  complexity.bib
 ---
 
-# Introduction
+# Quantifying information during conscious experience
+
+::: {.callout-note}
+## Callout Title (optional)
+
+Your callout text goes here.
+:::
+
+# Complexity measures for EEG 
+
+Richness of conscious experience pose a question to the neuroscience  
+
+::: {#fig-example }
+```{.tikz}
+%%| filename: stick-figure
+%%| caption: A Stick Figure
+
+\usetikzlibrary {mindmap}
+\begin{tikzpicture}
+  \path[mindmap,concept color=black,text=white]
+    node[concept] {Computer Science}
+    [clockwise from=0]
+    % note that `sibling angle' can only be defined in
+    % `level 1 concept/.append style={}'
+    child[concept color=green!50!black] {
+      node[concept] {practical}
+      [clockwise from=90]
+      child { node[concept] {algorithms} }
+      child { node[concept] {data structures} }
+      child { node[concept] {pro\-gramming languages} }
+      child { node[concept] {software engineer\-ing} }
+    }
+    % note that the `concept color' is passed to the `child'(!)
+    child[concept color=blue] {
+      node[concept] {applied}
+      [clockwise from=-30]
+      child { node[concept] {databases} }
+      child { node[concept] {WWW} }
+    }
+    child[concept color=red] { node[concept] {technical} }
+    child[concept color=orange] { node[concept] {theoretical} };
+\end{tikzpicture}
+```
+
+:::
+# Brain criticality
+
+Criticality is the singular state of complex systems poised at the brink of a phase transition between order and randomness.
+
+# Power laws and 1/f noise 
+
+@ji2024SourcesRichnessIneffability
+
+# Consciousness measures and Complexity
+
+- Repertoire of states 
+- Integration and unity
+- Effects of psycholics on complexity
+
+```{=typst}
+#block(
+  fill: rgb("#E0FFFF"),  // Keep your desired pastel background
+  stroke: blue + 1pt,    // Keep your desired border
+  radius: 8pt,           // INCREASED from ~4pt for more rounded corners
+  inset: 15pt,           // INCREASED from ~8pt for more space around text
+)[
+  Your content goes here. This area should now feel
+  a bit roomier, and the corners of the box will
+  be more noticeably curved. Adjust the values
+  for radius and inset until you are satisfied.
+]
+```
+
+
+
+Add graph about 1/f aperiodic term 
+
+- add tables with differnt measures explained
+- add  soort of SCHEMES
+- START FROM WRITING MESSAGES
+
+- autopoiesis as reference??
+self organisation of life
+
+graph of different frameworks
+- how we could combine it with neurophenomenology?
+
+- flexibility in relation to environment?
+- complexity of signal reflects structure of the generators?
+- microstates
+
+- complexity of brain signal will reflect inner processes but also envirobmnet
+- meditation vs effort 
+
+
+-richness of experience 
+- Information theory 
+- dynamical systems
+
+```{=typst}
+
+#table(
+  columns: (auto, auto, auto),
+  inset: 10pt,
+  align: center,
+  [Header 1], [Header 2], [Header 3],
+  [Cell 1], [Cell 2], [Cell 3],
+  [Cell 4], [Cell 5], [Cell 6],
+)
+```
 
 This poster presents a perspective on bridging quantitative measures of neural dynamics with phenomenal consciousness. The connection between self-organizing systems and spectral 1/f phenomena predates the recent surge in studies. Currently, these measures are being used to differentiate states of consciousness (e.g., distinguishing between minimally conscious and vegetative states, identifying sleep phases) and are also applied in research on psychedelics (e.g., the “entropic brain” hypothesis, where stimulants increase the complexity and richness of neuronal communication).
 
@@ -36,9 +151,14 @@ This poster presents a perspective on bridging quantitative measures of neural d
 
 Increased entropy or fractal dimension often correlates with positive affective states (e.g., psychedelics) and cognitive flexibility, whereas reduced complexity is observed in conditions such as depression. These patterns frequently involve NMDA receptors modulation  ( excitation-inhibition framework), providing a mechanistic link to various conditions that alter subjective experience, including schizophrenia and ADHD. Additionally, age-related changes in spectral slope correlate with cognitive reserve capacity, suggesting that variations in brain dynamics may # fundamentally shape phenomenological experience across the lifespan.
 
+
+
 # Summary
 
 Despite its promise, there is not yet a coherent framework linking everyday subjective experience with these quantitative measures of neural dynamics. This poster synthesizes primary research directions and highlights potential underlying biological mechanisms while also pointing to the imitations.
 
+# Possible studies ideas
 
 - Ideas put figure about increased number of papers(qualitative experinec + aperiodic + complexity)
+
+

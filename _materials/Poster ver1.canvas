@@ -1,0 +1,73 @@
+{
+  "edges": [
+  ],
+  "nodes": [
+    {
+      "height": 239,
+      "id": "9cecc16252cf395b",
+      "styleAttributes": {
+      },
+      "text": "# Can Fractal and Complexity Measures of Electrophysiological Signals Be Used to Study Experience?",
+      "type": "text",
+      "width": 840,
+      "x": -387,
+      "y": -780
+    },
+    {
+      "height": 150,
+      "id": "ce49baa8778f5f9e",
+      "styleAttributes": {
+      },
+      "text": "## Richness of experience",
+      "type": "text",
+      "width": 386,
+      "x": -520,
+      "y": -480
+    },
+    {
+      "height": 239,
+      "id": "a6b1980b51ca604d",
+      "styleAttributes": {
+      },
+      "text": "## Complexity measures for EEG",
+      "type": "text",
+      "width": 386,
+      "x": -520,
+      "y": -280
+    },
+    {
+      "height": 91,
+      "id": "640fd8b3a7c273e6",
+      "styleAttributes": {
+      },
+      "text": "## Power laws and 1/f  noise ",
+      "type": "text",
+      "width": 393,
+      "x": -500,
+      "y": 40
+    },
+    {
+      "color": "2",
+      "height": 150,
+      "id": "e166ca84e736c152",
+      "styleAttributes": {
+      },
+      "text": "## Brain criticality",
+      "type": "text",
+      "width": 313,
+      "x": 0,
+      "y": -480
+    },
+    {
+      "height": 103,
+      "id": "34c53d303c4fa6eb",
+      "styleAttributes": {
+      },
+      "text": "## Consciousness measures and complexity",
+      "type": "text",
+      "width": 393,
+      "x": 0,
+      "y": -240
+    }
+  ]
+}

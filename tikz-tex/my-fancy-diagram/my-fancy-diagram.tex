@@ -1,0 +1,93 @@
+\documentclass[tikz]{standalone}
+% \usepackage{tikz} % already loaded by the documentclass
+
+
+\begin{document}
+%%| filename: my-fancy-diagram
+%%| caption: A Stick Figure
+\usetikzlibrary{mindmap}
+
+% Add Unicode character definitions
+\DeclareUnicodeCharacter{03C7}{$\chi$}    % Greek chi
+\DeclareUnicodeCharacter{2248}{$\approx$} % Approximately equal to
+
+\begin{tikzpicture}
+  \path[mindmap, concept color=black, text=white]
+    node[concept] {Aperiodic Neural\\Activity Measures}
+    [clockwise from=0]
+    % Time Domain Methods
+    child[concept color=blue!70!black] {
+      node[concept] {Time Domain}
+      [clockwise from=130]
+      child { 
+        node[concept] {Auto-Correlation} 
+        [clockwise from=120]
+        child { node[concept] {Auto-Correlation\\Decay Time} }
+      }
+      child { 
+        node[concept] {Fluctuation} 
+        [clockwise from=170]
+        child { node[concept] {Hurst Exponent} }
+        child { node[concept] {Detrended\\Fluctuation\\Analysis (DFA)} }
+      }
+      child { 
+        node[concept] {Fractal Dimension} 
+        [clockwise from=220]
+        child { node[concept] {Higuchi Fractal\\Dimension} }
+        child { node[concept] {Katz Fractal\\Dimension} }
+        child { node[concept] {Petrosian Fractal\\Dimension} }
+      }
+      child { 
+        node[concept] {Complexity} 
+        [clockwise from=280]
+        child { node[concept] {Hjorth Parameters\\(Activity, Mobility,\\Complexity)} }
+        child { node[concept] {Lempel-Ziv\\Complexity} }
+      }
+      child { 
+        node[concept] {Entropy} 
+        [clockwise from=320]
+        child { node[concept] {Approximate\\Entropy (ApEn)} }
+        child { node[concept] {Sample Entropy\\(SampEn)} }
+        child { node[concept] {Permutation\\Entropy (PE)} }
+        child { node[concept] {Weighted\\Permutation\\Entropy (WPE)} }
+      }
+    }
+    % Frequency Domain Methods
+    child[concept color=red!80!black] {
+      node[concept] {Frequency Domain}
+      [clockwise from=-45]
+      child { 
+        node[concept] {Spectral Fitting}
+        [clockwise from=-20] 
+        child { node[concept] {Linear Regression} }
+        child { node[concept] {Spectral\\Parameterization\\(FOOOF/SpecParam)} 
+          [clockwise from=0]
+          child { node[concept] {Aperiodic\\Exponent ($\chi$)} }
+          child { node[concept] {Knee Parameter} }
+        }
+      }
+      child { 
+        node[concept] {Resampling} 
+        [clockwise from=-70]
+        child { node[concept] {IRASA} }
+      }
+    }
+    % Dynamical Systems Methods (mentioned but not focus)
+    child[concept color=green!60!black] {
+      node[concept] {Dynamical\\Systems}
+      [clockwise from=-120]
+      child { node[concept] {Correlation\\Dimension} }
+      child { node[concept] {Lyapunov\\Exponents} }
+    }
+    % Noise Types
+    child[concept color=orange] {
+      node[concept] {Noise Types\\by Exponent ($\chi$)}
+      [clockwise from=-180]
+      child { node[concept] {White Noise\\($\chi$ $\approx$ 0)} }
+      child { node[concept] {Pink Noise\\($\chi$ $\approx$ 1)} }
+      child { node[concept] {Brown Noise\\($\chi$ $\approx$ 2)} }
+      child { node[concept] {Black Noise\\($\chi$ > 2)} }
+    };
+\end{tikzpicture}
+\end{document}
+      

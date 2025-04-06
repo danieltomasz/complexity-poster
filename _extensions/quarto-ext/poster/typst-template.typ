@@ -38,14 +38,14 @@
   keywords: (),
 
   // Number of columns in the poster.
-  num_columns: "2", // Default is already 3
+  num_columns: "3", // Default is already 3
 
   // University logo's scale (in %).
   univ_logo_scale: "100",
 
   // University logo's column size (in in).
   // Might need adjustment for 33in width
-  univ_logo_column_size: "8", // Example adjustment: Reduced from 10 for narrower poster
+  univ_logo_column_size: "4", // Example adjustment: Reduced from 10 for narrower poster
 
   // Title and authors' column size (in in).
   // Might need adjustment for 33in width
@@ -69,7 +69,7 @@
   body
 ) = {
   // Set the body font.
-  set text(font: "STIX Two Text", size: 32pt) // Base body font size - might need adjustment too
+  set text(font: "Open Sans", size: 32pt) // Base body font size - might need adjustment too
   let sizes = size.split("x")
   let width = int(sizes.at(0)) * 1in
   let height = int(sizes.at(1)) * 1in
@@ -111,8 +111,8 @@
   show math.equation: set block(spacing: 0.65em)
 
   // Configure lists.
-  set enum(indent: 10pt, body-indent: 9pt)
-  set list(indent: 10pt, body-indent: 9pt)
+  set enum(indent: 30pt, body-indent: 9pt)
+  set list(indent: 30pt, body-indent: 9pt)
 
   // Configure headings.
   set heading(numbering: "I.A.1.")
@@ -120,15 +120,18 @@
     let levels = counter(heading).at(loc)
     let deepest = if levels != () { levels.last() } else { 1 }
 
-    set text(22pt, weight: 400) // Example adjustment: Slightly smaller base heading size
+    set text(40pt, weight: "regular") // Example adjustment: Slightly smaller base heading size
     if it.level == 1 [
-      #set align(center)
-      #set text({ 30pt }) // Example adjustment: Smaller Level 1 heading
+      #set align(left)
+      #set text({ 44pt }) // Example adjustment: Smaller Level 1 heading
       #show: smallcaps
+      #set text(weight: "bold") // Make it bold
+      #v(1.5em, weak: true)     // Space before heading (adjust 1.5em)
+      //#show: smallcaps
       #v(40pt, weak: true) // Example adjustment: Reduced spacing
       #if it.numbering != none {
-        numbering("I.", deepest)
-        h(7pt, weak: true)
+        numbering("1.", deepest)
+        h(0.5em, weak: true)    // Space after number (adjust 0.5em)
       }
       #it.body
       #v(30pt, weak: true) // Example adjustment: Reduced spacing
@@ -159,8 +162,8 @@
       column-gutter: 0pt,
       row-gutter: 40pt, // Example adjustment: Reduced spacing
       //image(univ_logo, width: univ_logo_scale),
-      image(univ_logo,  height: 4.0in),
-      text(title_font_size, title + "\n\n") +
+      image(univ_logo,  height: 3.0in),
+      text(title_font_size, title + "\n") +
       text(authors_font_size, emph(authors) +
            "  (" + departments + ") "),
     )
@@ -182,3 +185,4 @@
   // Display the poster's contents.
   body
 }
+#show bibliography: set text(size: 20pt) // Adjust 26pt as needed
