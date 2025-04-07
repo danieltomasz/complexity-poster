@@ -240,7 +240,7 @@
   body
 ) = {
   // Set the body font.
-  set text(font: "Open Sans", size: 32pt) // Base body font size - might need adjustment too
+  set text(font: "Open Sans", size: 26pt) // Base body font size - might need adjustment too
   let sizes = size.split("x")
   let width = int(sizes.at(0)) * 1in
   let height = int(sizes.at(1)) * 1in
@@ -281,14 +281,15 @@
   set math.equation(numbering: "(1)")
   show math.equation: set block(spacing: 0.65em)
 
+
   // Configure lists.
   set enum(indent: 30pt, body-indent: 9pt)
-  set list(indent: 30pt, body-indent: 9pt)
+  set list(indent: 30pt, body-indent: 9pt, spacing: 0.5em)
 
   // Configure headings.
   set heading(numbering: none ) // Was: set heading(numbering: "I.A.1.")
-  show heading: it => locate(loc => {
-    let levels = counter(heading).at(loc)
+  show heading: it =>  context{
+     let levels = counter(heading).get() // Use .get() inside context
     let deepest = if levels != () { levels.last() } else { 1 }
 
     set text(40pt, weight: "regular") // Example adjustment: Slightly smaller base heading size
@@ -323,7 +324,7 @@
       }
       _#(it.body):_
     ]
-  })
+  }
 
   // Arranging the logo, title, authors, and department in the header.
   align(center,
@@ -334,7 +335,7 @@
       row-gutter: 40pt, // Example adjustment: Reduced spacing
       //image(univ_logo, width: univ_logo_scale),
       image(univ_logo,  height: 3.0in),
-      text(title_font_size, title + "\n") +
+      text(title_font_size, title + "\n\n") +
       text(authors_font_size, emph(authors) +
            "  (" + departments + ") "),
     )
@@ -343,8 +344,8 @@
   // Start three column mode and configure paragraph properties.
   // Use the num_columns parameter. Adjust gutter if needed.
   show: columns.with(num_columns, gutter: 48pt) // Example adjustment: Reduced gutter for narrower columns
-  set par(justify: true, first-line-indent: 0em)
-  show par: set block(spacing: 0.65em)
+  set par(justify: true, first-line-indent: 0em, spacing: 0.65em)
+ // show par: set block(spacing: 0.65em)
 
   // Display the keywords.
   if keywords != () [
@@ -355,8 +356,12 @@
 
   // Display the poster's contents.
   body
+
+
+
 }
-#show bibliography: set text(size: 20pt) // Adjust 26pt as needed
+#show bibliography: set text(size: 18pt) // Adjust 26pt as needed
+
 
 // Typst custom formats typically consist of a 'typst-template.typ' (which is
 // the source code for a typst template) and a 'typst-show.typ' which calls the
@@ -457,23 +462,21 @@
   radius: 8pt,           // INCREASED from ~4pt for more rounded corners
   inset: 15pt,           // INCREASED from ~8pt for more space around text
 )[
-  Your content goes here. This area should now feel
-  a bit roomier, and the corners of the box will
-  be more noticeably curved. Adjust the values
-  for radius and inset until you are satisfied.
+- Complexity and information-theoretic approaches to brain signal were popularized in consciousness research by Integrated Information Theory, but they can be applied without requiring IIT formalism or assumptions @koculak2022HowMuchConsciousness.
+- Biomarkers based on these approaches have been successful in discriminating states of consciousness, while much effort has been directed toward studying the content.
+-   Conscious experience is rich and has a high-dimensional structure @ji2024SourcesRichnessIneffability, which makes the problem well-suited for the next set of tools arising from dynamical systems, statistical physics and complexity science.
 ]
-- complexity, critialicy and related approaches looking for system dynamics and variability are gaining traction in neurosicence
-- Biomarkers based on it are succesful in discrimating states of consciousness, whiile effort was directed toward styding the content
-- conscious experience is rich and has high dimensional structure @ji2024SourcesRichnessIneffability, which is set the problem suitable for next set of tool arising from statistical physics and complexity science
+= Quantifying changes in brain signal
+<quantifying-changes-in-brain-signal>
+- EEG complexity measures can capture intricate neuronal processes that may not be detectable through linear methods
+- Many complexity metrics are interrelated; however, entropy exhibits a less straightforward relationship. Further details are provided in @donoghue2024EvaluatingComparingMeasures
 
-= Quantifying information during conscious experience
-<quantifying-information-during-conscious-experience>
 #figure([
-#box(image("images/measures.svg"))
+#box(image("images/measures.png"))
 ], caption: figure.caption(
-separator: "", 
 position: bottom, 
 [
+Selected measures of complexity and criticality.
 ]), 
 kind: "quarto-float-fig", 
 supplement: "Figure", 
@@ -481,86 +484,83 @@ supplement: "Figure",
 <fig-example>
 
 
-Richness of conscious experience pose a question to the neuroscience
+= Brain criticality, power laws and 1/f noise
+<brain-criticality-power-laws-and-1f-noise>
+- Decades of evidence point to the synchronization of oscillatory neural signals as one of the key mechanisms underlying information integration and selection.
 
-::: \# Brain criticality
+- "When oscillations are present, they often appear as 'bumps' superimposed on the 1/f slope of the power spectrum." The power spectrum follows a power-law relationship between power and frequency, where power decreases exponentially with increasing frequency. The slope of the 1/f relationship carries important information @donoghue2020ParameterizingNeuralPower
 
-Criticality is the singular state of complex systems poised at the brink of a phase transition between order and randomness.
+#figure([
+#box(image("images/concepts.png"))
+], caption: figure.caption(
+position: bottom, 
+[
+Selected measures of complexity and criticality.
+]), 
+kind: "quarto-float-fig", 
+supplement: "Figure", 
+)
+<fig-example>
 
-= Power laws and 1/f noise
-<power-laws-and-1f-noise>
-#cite(<ji2024SourcesRichnessIneffability>, form: "prose")
 
-= Consciousness measures and Complexity
-<consciousness-measures-and-complexity>
-- Repertoire of states
-- Integration and unity
-- Effects of psycholics on complexity
+- Criticality is the singular state of complex systems poised at the brink of a phase transition between order and randomness, a special kind of collective behavior observed in many-bodied systems @obyrne2022HowCriticalBrain.
 
-Add graph about 1/f aperiodic term
+- The presence of power laws and scale-free distributions in phenomena such as neuronal avalanches is frequently interpreted as evidence of criticality in brain dynamics. Critical brain hypothesis states that global neuronal dynamics of the healthy brain operate at the boundary of a critical phase transition between an ordered and a disordered phase @obyrne2022HowCriticalBrain
 
-- add tables with differnt measures explained
+= Complexity measures for EEG and brain states
+<complexity-measures-for-eeg-and-brain-states>
+- recently there are several reviews on topic (@zimmern2020WhyBrainCriticality, @sarasso2021ConsciousnessComplexityConsilience)
 
-- add soort of SCHEMES
-
-- START FROM WRITING MESSAGES
-
-- autopoiesis as reference?? self organisation of life
-
-graph of different frameworks - how we could combine it with neurophenomenology?
-
-- flexibility in relation to environment?
-
-- complexity of signal reflects structure of the generators?
-
-- microstates
-
-- complexity of brain signal will reflect inner processes but also envirobmnet
-
-- meditation vs effort
-
-\-richness of experience - Information theory - dynamical systems
-
-This poster presents a perspective on bridging quantitative measures of neural dynamics with phenomenal consciousness. The connection between self-organizing systems and spectral 1/f phenomena predates the recent surge in studies. Currently, these measures are being used to differentiate states of consciousness (e.g., distinguishing between minimally conscious and vegetative states, identifying sleep phases) and are also applied in research on psychedelics (e.g., the "entropic brain" hypothesis, where stimulants increase the complexity and richness of neuronal communication).
-
-= Complexity measures for EEG
-<complexity-measures-for-eeg>
-#text(size: 22pt)[
+#text(size: 20pt)[
   #table(
-    columns: (auto, auto, auto, auto, auto),
+    columns: (auto,  auto, auto, auto),
     inset: 10pt,
-    align: (left, left, left, left, left),
+    align: (left, left, left, left),
     fill: (_, row) => if row == 0 { rgb(240, 240, 245) } else { white },
-    stroke: (x, y) => if y == 0 { (bottom: 1.5pt) } else { 0.5pt },
-    
-    [*Method*], [*Domain*], [*Key Characteristics*], [*Strengths*], [*Limitations*],
-    
-    [*Auto-correlation decay time*], [Time], [Measures how quickly signal decorrelates with itself], [Correlates with knee frequency; relationship with age persists after accounting for exponent], [—],
-    
-    [*Hurst Exponent*], [Time], [Quantifies long-term memory of time series], [Measures statistical dependence between distant points], [More influenced by oscillations],
-    
-    [*DFA* (Detrended Fluctuation Analysis)], [Time], [Examines how fluctuations scale with window size], [Removes overall trends first], [—],
-    
-    [*Fractal Dimension metrics* (Higuchi, Katz, Petrosian)], [Time], [Measure signal complexity and self-similarity], [Katz fractal dimension less affected by oscillations], [—],
-    
-    [*Lempel-Ziv Complexity*], [Time], [Counts unique patterns in binarized signal], [Less affected by oscillations], [—],
-    
-    [*Entropy measures* (ApEn, SampEn, PE, WPE)], [Time], [Quantify signal unpredictability], [Sample entropy less affected by oscillations], [Permutation entropy strongly influenced by oscillations],
-    
-    [*Spectral Parameterization* (SpecParam/FOOOF)], [Frequency], [Models both periodic and aperiodic components], [Handles knees and broad peaks well; directly separates oscillations from background], [More complex modeling approach],
-    
-    [*IRASA*], [Frequency], [Separates components through resampling], [Directly separates oscillations from background], [Less effective with knees or non-scale-free signals]
+    // Corrected stroke: y=1 refers to the boundary *below* row 0 (the header)
+    stroke: (x, y) => if y == 1 { 0.5pt } else { 0.5pt },
+
+    // Header row
+    [*Method*],  [*Interpretation and limitations*], [*Clinical Applications*], [*Possible further studies*],
+
+    // Data rows - COMMAS ADDED at the end of each row definition
+    [*Auto-correlation decay time*],  [Correlation of the signal to itself, with a certain time-lag,], [Correlates with knee frequency @ji2024SourcesRichnessIneffability; relationship with age persists after accounting for exponent  ], [—],
+
+    [*Hurst Exponent*], [Quantifies long-term memory of time series], [Measures statistical dependence between distant points], [More influenced by oscillations],
+
+    [*DFA* (Detrended Fluctuation Analysis)],  [Examines how fluctuations scale with window size], [Removes overall trends first], [—],
+
+    [*Fractal Dimension metrics* (Higuchi, Katz, Petrosian)],  [Measure signal complexity and self-similarity], [Katz fractal dimension less affected by oscillations], [—],
+
+    [*Lempel-Ziv Complexity*],  [Counts unique patterns in binarized signal], [Less affected by oscillations], [—],
+
+    [*Entropy measures* (ApEn, SampEn, PE, WPE)],  [Quantify signal unpredictability], [Sample entropy less affected by oscillations], [Permutation entropy strongly influenced by oscillations],
+
+    // Note the double brackets [[...]] in the original, preserved here
+    [*Spectral Parameterization* (SpecParam/FOOOF)], [[Models both periodic and aperiodic components]], [Handles knees and broad peaks well; directly separates oscillations from background], [More complex modeling approach],
+
+    [*IRASA*],  [Separates components through resampling], [Directly separates oscillations from background], [Less effective with knees or non-scale-free signals] // No comma after the last row
   )
 ]
+Currently, these measures are being used to differentiate states of consciousness (e.g., distinguishing between minimally conscious and vegetative states, identifying sleep phases) and are also applied in research on psychedelics (e.g., the "entropic brain" hypothesis, where stimulants increase the complexity and richness of neuronal communication).
+
 Increased entropy or fractal dimension often correlates with positive affective states (e.g., psychedelics) and cognitive flexibility, whereas reduced complexity is observed in conditions such as depression. These patterns frequently involve NMDA receptors modulation~ ( excitation-inhibition framework), providing a mechanistic link to various conditions that alter subjective experience, including schizophrenia and ADHD. Additionally, age-related changes in spectral slope correlate with cognitive reserve capacity, suggesting that variations in brain dynamics may \# fundamentally shape phenomenological experience across the lifespan.
 
+= Possible mechanisms
+<possible-mechanisms>
 = Summary
 <summary>
-Despite its promise, there is not yet a coherent framework linking everyday subjective experience with these quantitative measures of neural dynamics. This poster synthesizes primary research directions and highlights potential underlying biological mechanisms while also pointing to the imitations.
+- This presentation doesn want to be exaustive iterarture review, rather want to discuss plausisibility of linking this dynamics altering experience - ADHD, autism, schisophrenia, time perception
 
-= Possible studies ideas
-<possible-studies-ideas>
-- Ideas put figure about increased number of papers(qualitative experinec + aperiodic + complexity)
+- There are many ways to measure the complexity and variability of brain signals, which are often closely related.
+
+- The relationship is not linear, more complexity or dynamics isn'r always better; intermediate states between chaos and excessive order enable the brain to respond flexibly and adaptively to environmental demands.
+
+- The most plausible underlying mechanism is the balance between excitation and inhibition
+
+- Surrogate data testing is essential for distinguishing genuine criticality from spurious findings
+
+- Although power-law behavior is a hallmark of criticality, it can also emerge from non-critical processes, making it an insufficient criterion on its own
 
 #bibliography("complexity.bib")
 

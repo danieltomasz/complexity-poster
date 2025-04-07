@@ -69,7 +69,7 @@
   body
 ) = {
   // Set the body font.
-  set text(font: "Open Sans", size: 32pt) // Base body font size - might need adjustment too
+  set text(font: "Open Sans", size: 26pt) // Base body font size - might need adjustment too
   let sizes = size.split("x")
   let width = int(sizes.at(0)) * 1in
   let height = int(sizes.at(1)) * 1in
@@ -110,14 +110,15 @@
   set math.equation(numbering: "(1)")
   show math.equation: set block(spacing: 0.65em)
 
+
   // Configure lists.
   set enum(indent: 30pt, body-indent: 9pt)
-  set list(indent: 30pt, body-indent: 9pt)
+  set list(indent: 30pt, body-indent: 9pt, spacing: 0.5em)
 
   // Configure headings.
   set heading(numbering: none ) // Was: set heading(numbering: "I.A.1.")
-  show heading: it => locate(loc => {
-    let levels = counter(heading).at(loc)
+  show heading: it =>  context{
+     let levels = counter(heading).get() // Use .get() inside context
     let deepest = if levels != () { levels.last() } else { 1 }
 
     set text(40pt, weight: "regular") // Example adjustment: Slightly smaller base heading size
@@ -152,7 +153,7 @@
       }
       _#(it.body):_
     ]
-  })
+  }
 
   // Arranging the logo, title, authors, and department in the header.
   align(center,
@@ -163,7 +164,7 @@
       row-gutter: 40pt, // Example adjustment: Reduced spacing
       //image(univ_logo, width: univ_logo_scale),
       image(univ_logo,  height: 3.0in),
-      text(title_font_size, title + "\n") +
+      text(title_font_size, title + "\n\n") +
       text(authors_font_size, emph(authors) +
            "  (" + departments + ") "),
     )
@@ -172,8 +173,8 @@
   // Start three column mode and configure paragraph properties.
   // Use the num_columns parameter. Adjust gutter if needed.
   show: columns.with(num_columns, gutter: 48pt) // Example adjustment: Reduced gutter for narrower columns
-  set par(justify: true, first-line-indent: 0em)
-  show par: set block(spacing: 0.65em)
+  set par(justify: true, first-line-indent: 0em, spacing: 0.65em)
+ // show par: set block(spacing: 0.65em)
 
   // Display the keywords.
   if keywords != () [
@@ -184,5 +185,9 @@
 
   // Display the poster's contents.
   body
+
+
+
 }
-#show bibliography: set text(size: 20pt) // Adjust 26pt as needed
+#show bibliography: set text(size: 18pt) // Adjust 26pt as needed
+
