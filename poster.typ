@@ -381,7 +381,7 @@
 //   - https://github.com/typst/templates
 
 #show: doc => poster(
-   title: [Can Fractal and Complexity Measures of Electrophysiological Signals Be Used to Study Subjective Experience?], 
+   title: [Can Fractal and Complexity Measures of Electrophysiological Signals Be Used to Study Experience?], 
   // TODO: use Quarto's normalized metadata.
    authors: [Daniel Borek], 
    departments: [Ghent University, Faculty of Psychology and Educational Sciences, Department of Data-Analysis], 
@@ -484,18 +484,34 @@ supplement: "Figure",
 <fig-example>
 
 
+= Complexity measures for EEG and brain states
+<complexity-measures-for-eeg-and-brain-states>
+- These measures are increasingly used to differentiate states of consciousness, such as distinguishing between minimally conscious and vegetative states or identifying sleep phases (@zimmern2020WhyBrainCriticality, @sarasso2021ConsciousnessComplexityConsilience).
+
+- They are also applied in psychedelic research---for example, in the "entropic brain" hypothesis, which suggests that psychedelics enhance the complexity and richness of neural communication.
+
+- Different metrics vary in how they account for oscillatory activity and the 1/f component of the signal.
+
+- They are particularly well-suited for examining the influence of pharmacological agents known to alter consciousness, such as anesthetics and psychedelics.
+
+- Increased entropy or fractal dimension is often associated with positive affective states (e.g., during psychedelic experiences) and greater cognitive flexibility, whereas reduced complexity is typically observed in conditions such as depression.
+
 = Brain criticality, power laws and 1/f noise
 <brain-criticality-power-laws-and-1f-noise>
-- Decades of evidence point to the synchronization of oscillatory neural signals as one of the key mechanisms underlying information integration and selection.
+- Decades of evidence point to the synchronization of oscillatory neural signals as one of the key mechanisms underlying information integration and selection @engel2016NeuronalOscillationsCoherence.
 
 - "When oscillations are present, they often appear as 'bumps' superimposed on the 1/f slope of the power spectrum." The power spectrum follows a power-law relationship between power and frequency, where power decreases exponentially with increasing frequency. The slope of the 1/f relationship carries important information @donoghue2020ParameterizingNeuralPower
+
+- Criticality is the singular state of complex systems poised at the brink of a phase transition between order and randomness, a special kind of collective behavior observed in many-bodied systems @obyrne2022HowCriticalBrain.
+
+- The presence of power laws and scale-free distributions in phenomena such as neuronal avalanches is frequently interpreted as evidence of criticality in brain dynamics. Critical brain hypothesis states that global neuronal dynamics of the healthy brain operate at the boundary of a critical phase transition between an ordered and a disordered phase @obyrne2022HowCriticalBrain
 
 #figure([
 #box(image("images/concepts.png"))
 ], caption: figure.caption(
 position: bottom, 
 [
-Selected measures of complexity and criticality.
+Selected concepts related to complexity and criticality.
 ]), 
 kind: "quarto-float-fig", 
 supplement: "Figure", 
@@ -503,64 +519,43 @@ supplement: "Figure",
 <fig-example>
 
 
-- Criticality is the singular state of complex systems poised at the brink of a phase transition between order and randomness, a special kind of collective behavior observed in many-bodied systems @obyrne2022HowCriticalBrain.
+= Mechanisms?
+<mechanisms>
+- Frequently involvement of modulation of NMDA of GABA receptors within the excitation--inhibition framework, offering a mechanistic explanation for altered subjective experiences in conditions such as schizophrenia and ADHD.
 
-- The presence of power laws and scale-free distributions in phenomena such as neuronal avalanches is frequently interpreted as evidence of criticality in brain dynamics. Critical brain hypothesis states that global neuronal dynamics of the healthy brain operate at the boundary of a critical phase transition between an ordered and a disordered phase @obyrne2022HowCriticalBrain
+- Changes in E:I will also affect oscillatory activity
 
-= Complexity measures for EEG and brain states
-<complexity-measures-for-eeg-and-brain-states>
-- recently there are several reviews on topic (@zimmern2020WhyBrainCriticality, @sarasso2021ConsciousnessComplexityConsilience)
+- Complexity metrics and criticality theory offers its own explanatory framework
 
-#text(size: 20pt)[
-  #table(
-    columns: (auto,  auto, auto, auto),
-    inset: 10pt,
-    align: (left, left, left, left),
-    fill: (_, row) => if row == 0 { rgb(240, 240, 245) } else { white },
-    // Corrected stroke: y=1 refers to the boundary *below* row 0 (the header)
-    stroke: (x, y) => if y == 1 { 0.5pt } else { 0.5pt },
+  - Emphasis on self-organization and emergent properties arising from collective neural behavior
+  - Multi-scale integration guided by universal principles such as scale invariance and power-law distributions.
+  - A shift in focus from where functions are localized to how dynamic processes give rise to specific capabilities; Recognition of non-linear causality .
 
-    // Header row
-    [*Method*],  [*Interpretation and limitations*], [*Clinical Applications*], [*Possible further studies*],
+= Challenges
+<challenges>
+- The relationship is non-linear: greater complexity is not always optimal. Intermediate states between chaos and excessive order may best support flexible, adaptive responses to the environment.
+- While many measures are closely related, their interrelationships are not always well understood.
+- Methodological factors---such as signal preprocessing, recording length, or choice of metaparameters---can significantly influence complexity estimates.
+- While power-law behavior is commonly associated with criticality, it can also result from non-critical processes, making it an insufficient marker on its own. Surrogate data testing is essential to rule out spurious findings---and should be accompanied by biologically plausible theoretical grounding from the outset.
 
-    // Data rows - COMMAS ADDED at the end of each row definition
-    [*Auto-correlation decay time*],  [Correlation of the signal to itself, with a certain time-lag,], [Correlates with knee frequency @ji2024SourcesRichnessIneffability; relationship with age persists after accounting for exponent  ], [—],
+== Possible directions
+<possible-directions>
+#block(
+  fill: rgb("#E0FFFF"),  // Keep your desired pastel background
+  stroke: blue + 1pt,    // Keep your desired border
+  radius: 8pt,           // INCREASED from ~4pt for more rounded corners
+  inset: 15pt,           // INCREASED from ~8pt for more space around text
+)[
 
-    [*Hurst Exponent*], [Quantifies long-term memory of time series], [Measures statistical dependence between distant points], [More influenced by oscillations],
-
-    [*DFA* (Detrended Fluctuation Analysis)],  [Examines how fluctuations scale with window size], [Removes overall trends first], [—],
-
-    [*Fractal Dimension metrics* (Higuchi, Katz, Petrosian)],  [Measure signal complexity and self-similarity], [Katz fractal dimension less affected by oscillations], [—],
-
-    [*Lempel-Ziv Complexity*],  [Counts unique patterns in binarized signal], [Less affected by oscillations], [—],
-
-    [*Entropy measures* (ApEn, SampEn, PE, WPE)],  [Quantify signal unpredictability], [Sample entropy less affected by oscillations], [Permutation entropy strongly influenced by oscillations],
-
-    // Note the double brackets [[...]] in the original, preserved here
-    [*Spectral Parameterization* (SpecParam/FOOOF)], [[Models both periodic and aperiodic components]], [Handles knees and broad peaks well; directly separates oscillations from background], [More complex modeling approach],
-
-    [*IRASA*],  [Separates components through resampling], [Directly separates oscillations from background], [Less effective with knees or non-scale-free signals] // No comma after the last row
-  )
+-  Connecting  variations in brain dynamics with qualitative experience via neurophenomelogy
+-  Relating metrics to experience in non-normative states (e.g., time perception in psychiatric disorders, neurodivergence).
+-  Examining how pre-stimulus complexity influences perception and awareness, including potential links to environmental complexity.
+-  Applying multilevel hierarchical models across diverse populations and datasets to identify group-level differences.
+- Are these metrics just “informational fumes”— epiphenomena rather than causal?
 ]
-Currently, these measures are being used to differentiate states of consciousness (e.g., distinguishing between minimally conscious and vegetative states, identifying sleep phases) and are also applied in research on psychedelics (e.g., the "entropic brain" hypothesis, where stimulants increase the complexity and richness of neuronal communication).
 
-Increased entropy or fractal dimension often correlates with positive affective states (e.g., psychedelics) and cognitive flexibility, whereas reduced complexity is observed in conditions such as depression. These patterns frequently involve NMDA receptors modulation~ ( excitation-inhibition framework), providing a mechanistic link to various conditions that alter subjective experience, including schizophrenia and ADHD. Additionally, age-related changes in spectral slope correlate with cognitive reserve capacity, suggesting that variations in brain dynamics may \# fundamentally shape phenomenological experience across the lifespan.
 
-= Possible mechanisms
-<possible-mechanisms>
-= Summary
-<summary>
-- This presentation doesn want to be exaustive iterarture review, rather want to discuss plausisibility of linking this dynamics altering experience - ADHD, autism, schisophrenia, time perception
 
-- There are many ways to measure the complexity and variability of brain signals, which are often closely related.
-
-- The relationship is not linear, more complexity or dynamics isn'r always better; intermediate states between chaos and excessive order enable the brain to respond flexibly and adaptively to environmental demands.
-
-- The most plausible underlying mechanism is the balance between excitation and inhibition
-
-- Surrogate data testing is essential for distinguishing genuine criticality from spurious findings
-
-- Although power-law behavior is a hallmark of criticality, it can also emerge from non-critical processes, making it an insufficient criterion on its own
 
 #bibliography("complexity.bib")
 
